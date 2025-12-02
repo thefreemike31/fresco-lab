@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.next",
+    "\\.next\\dev",
+    "\\.next\\types",
+    "\\public",
+    "\\src",
+    "\\src\\app"
+  ],
+  "SelectedNode": "\\package.json",
+  "PreviewInSolutionExplorer": false
+}
