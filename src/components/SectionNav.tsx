@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -106,6 +107,16 @@ export function SectionNav() {
 }
 
 export function Footer() {
+    const [visitors, setVisitors] = useState<number | null>(null);
+
+    useEffect(() => {
+        // Increment and get visitor count
+        fetch('https://api.countapi.xyz/hit/fresco-lab-site/visits')
+            .then(res => res.json())
+            .then(data => setVisitors(data.value))
+            .catch(() => setVisitors(null));
+    }, []);
+
     return (
         <footer className="mt-12 pt-6 border-t border-slate-800/60">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] sm:text-xs text-slate-500">
@@ -116,6 +127,16 @@ export function Footer() {
                     to Jacque Fresco&apos;s ideas, built to bring his legacy to a new generation.
                 </p>
                 <div className="flex items-center gap-3 text-slate-600">
+                    {/* Visitor Counter */}
+                    {visitors !== null && (
+                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-violet-500/10 to-sky-500/10 border border-violet-500/30">
+                            <span className="text-[9px] text-slate-400">👁️</span>
+                            <span className="text-[10px] font-mono font-medium bg-gradient-to-r from-violet-400 to-sky-400 bg-clip-text text-transparent">
+                                {visitors.toLocaleString()}
+                            </span>
+                            <span className="text-[9px] text-slate-500">visitors</span>
+                        </div>
+                    )}
                     <span className="px-2 py-0.5 rounded-full bg-slate-800/60 border border-slate-700/50 text-[9px] text-slate-400 font-mono">v0.2.0</span>
                     <div className="flex items-center gap-1">
                         <span>Inspired by</span>
