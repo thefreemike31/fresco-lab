@@ -115,10 +115,13 @@ export function Footer() {
                     The Venus Project or the Fresco estate. It&apos;s an independent tribute
                     to Jacque Fresco&apos;s ideas, built to bring his legacy to a new generation.
                 </p>
-                <div className="flex items-center gap-1 text-slate-600">
-                    <span>Inspired by</span>
-                    <span className="text-violet-400">Jacque Fresco</span>
-                    <span>(1916–2017)</span>
+                <div className="flex items-center gap-3 text-slate-600">
+                    <span className="px-2 py-0.5 rounded-full bg-slate-800/60 border border-slate-700/50 text-[9px] text-slate-400 font-mono">v0.2.0</span>
+                    <div className="flex items-center gap-1">
+                        <span>Inspired by</span>
+                        <span className="text-violet-400">Jacque Fresco</span>
+                        <span>(1916–2017)</span>
+                    </div>
                 </div>
             </div>
         </footer>
