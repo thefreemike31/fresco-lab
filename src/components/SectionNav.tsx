@@ -110,10 +110,10 @@ export function Footer() {
     const [visitors, setVisitors] = useState<number | null>(null);
 
     useEffect(() => {
-        // Increment and get visitor count
-        fetch('https://api.countapi.xyz/hit/fresco-lab-site/visits')
+        // Increment and get visitor count from our own API
+        fetch('/api/visitors', { method: 'POST' })
             .then(res => res.json())
-            .then(data => setVisitors(data.value))
+            .then(data => setVisitors(data.count))
             .catch(() => setVisitors(null));
     }, []);
 
